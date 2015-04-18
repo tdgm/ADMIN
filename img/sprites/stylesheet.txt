@@ -1,0 +1,59 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-icon_add_user {
+    width: 26px;
+    height: 26px;
+    background-position: -5px -5px;
+}
+
+.sprite-icon_edit_user {
+    width: 26px;
+    height: 26px;
+    background-position: -41px -5px;
+}
+
+.sprite-icon_password- {
+    width: 26px;
+    height: 26px;
+    background-position: -77px -5px;
+}
+
+.sprite-icon_trash {
+    width: 26px;
+    height: 26px;
+    background-position: -113px -5px;
+}
+
+.sprite-sort_asc {
+    width: 19px;
+    height: 19px;
+    background-position: -149px -5px;
+}
+
+.sprite-sort_asc_disabled {
+    width: 19px;
+    height: 19px;
+    background-position: -178px -5px;
+}
+
+.sprite-sort_both {
+    width: 19px;
+    height: 19px;
+    background-position: -207px -5px;
+}
+
+.sprite-sort_desc {
+    width: 19px;
+    height: 19px;
+    background-position: -236px -5px;
+}
+
+.sprite-sort_desc_disabled {
+    width: 19px;
+    height: 19px;
+    background-position: -265px -5px;
+}
