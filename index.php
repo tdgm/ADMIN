@@ -9,10 +9,10 @@
 	 		loadCSS('reset');
 	 		loadCSS('style');
 	 	 	loadJS('https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js',true);
-	 	 	loadJS('function');
+	 	 	loadJS('functions');
 	 	 ?>
 	</head>
 	<body>
-	
+		<?php loadModulo('usuarios','login'); ?>
 	</body>
 </html>

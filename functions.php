@@ -26,4 +26,27 @@ function loadJS($arquivo=NULL,$remoto=FALSE){
 		echo '<script type="text/javascript" src="'.$arquivo.'"></script>';
 	endif;
 }//loadJS	
+function loadModulo($modulo=NULL,$tela=NULL){
+	if ($modulo==NULL || $tela==NULL):
+		echo '<p>Errona função <strong>'.__FUNCTION__.'</strong>: faltam parâmetros para execução.';
+	else:
+		if(file_exists(MODULOSPATH."$modulo.php")):
+			include_once(MODULOSPATH."$modulo.php");
+		else:
+			echo '<p>Módulo inexistente neste sistema, contate o administrador.</p>';
+		endif;
+	endif;
+}//loadModulo
+function protegeArquivo($nomeArquivo,$redirPara='index.php?erro=3'){
+	$url = $_SERVER["PHP_SELF"];
+	if(preg_match("/$nomeArquivo/i", $url)):
+		redireciona($redirPara);
+	endif;
+}//protegeArquivo
+function redireciona($url=''){
+	header("Location: ".BASEURL.$url);
+}//redireciona
+
+
+
 ?>
