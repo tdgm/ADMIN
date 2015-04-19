@@ -1,14 +1,19 @@
 <?php 
 inicializa();
+protegeArquivo(basename(__FILE__));
+
 function inicializa(){
 	if(file_exists(dirname(__FILE__).'/config.php')):
 		require_once(dirname(__FILE__).'/config.php');
 	else:
 		die(utf8_decode('O arquivo de configuração não foi localizado, contate o administrador.'));
 	endif;
-	if(!defined("BASEPATH") || !defined("BASEURL")):
-		die(utf8_decode('Faltam configurações básicas do sistema, contate o administrador.'));
-	endif;
+	$constantes = array('BASEPATH','BASEURL','ADMURL','CLASSESPATH','MODULOSPATH','CSSPATH','JSPATH','DBHOST','DBUSER','DBPASS','DBNAME');
+	foreach ($constantes as $valor):
+		if(!defined($valor)):
+			die(utf8_decode('Faltam configurações básicas do sistema,'.$valor));
+		endif;
+	endforeach;
 	require_once(BASEPATH.CLASSESPATH.'autoload.php');		
 }//inicializa
 function loadCSS($arquivo=NULL,$media='all',$import=FALSE){
@@ -46,7 +51,9 @@ function protegeArquivo($nomeArquivo,$redirPara='index.php?erro=3'){
 function redireciona($url=''){
 	header("Location: ".BASEURL.$url);
 }//redireciona
-
+function codificaSenha($senha){
+	return md5($senha);
+}//codificaSenha
 
 
 ?>

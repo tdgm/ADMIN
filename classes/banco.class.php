@@ -1,10 +1,13 @@
 <?php 
+	require_once(dirname(__FILE__).'/autoload.php');
+	protegeArquivo(basename(__FILE__));
+	
 	abstract class banco {
 		//propriedades
-		public $servidor		= "localhost";
-		public $usuario			= "root";
-		public $senha			= "";
-		public $nomeBanco		= "thiagodel";
+		public $servidor		= DBHOST;
+		public $usuario			= DBUSER;
+		public $senha			= DBPASS;
+		public $nomeBanco		= DBNAME;
 		public $conexao			= null;
 		public $dataSet			= null;
 		public $linhasAfetadas	= -1;
