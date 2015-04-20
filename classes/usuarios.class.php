@@ -5,7 +5,7 @@
 	class usuarios extends base {
 		public function __construct($campos=array()){
 			parent::__construct();
-			$this->tabela = "usuarios";
+			$this->tabela = "paineladm_usuarios";
 			if(sizeof($campos)<=0):
 				$this->campos_valores = array (
 					"nome" => NULL,
@@ -22,7 +22,7 @@
 			$this->campoPk = "id";	
 		}//construct
 		public function doLogin($objeto){
-			$objeto->extras_select = " WHERE login='".$objeto->getValor('login')."' AND senha='".codificaSenha($objeto->getValor('senha'))."' AND ativo='s'";
+			$objeto->extras_select = "WHERE login='".$objeto->getValor('login')."' AND senha='".codificaSenha($objeto->getValor('senha'))."' AND ativo='s'";
 			$this->selecionaTudo($objeto);
 			if($this->linhasAfetadas==1):
 				return TRUE;
