@@ -14,7 +14,12 @@ function inicializa(){
 			die(utf8_decode('Faltam configurações básicas do sistema,'.$valor));
 		endif;
 	endforeach;
-	require_once(BASEPATH.CLASSESPATH.'autoload.php');		
+	require_once(BASEPATH.CLASSESPATH.'autoload.php');
+	if($_GET['logoff']==TRUE):
+		$user = new usuarios();
+		$user->doLogout();
+		exit;
+	endif;			
 }//inicializa
 function loadCSS($arquivo=NULL,$media='all',$import=FALSE){
 	if($arquivo !=NULL):
@@ -54,6 +59,11 @@ function redireciona($url=''){
 function codificaSenha($senha){
 	return md5($senha);
 }//codificaSenha
-
+function verificaLogin(){
+	$sessao = new sessao();
+	if($sessao->getNvars()<=0 || $sessao->getVar('logado')!=TRUE):
+		redireciona('?erro=3');
+	endif;
+}//verificLogin
 
 ?>

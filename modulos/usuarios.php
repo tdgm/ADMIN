@@ -5,6 +5,8 @@ loadJS('jquery.validate.min');
 loadJS('jquery.validate-messages.min');
 switch ($tela):
 	case 'login':
+		$sessao = new sessao();
+		if($sessao->getNvars()>0 || $sessao->getVar('logado')==TRUE) redireciona('painel.php');
 		if(isset($_POST['logar'])):
 			$user = new usuarios();
 			$user->setValor('login', $_POST['usuario']);
